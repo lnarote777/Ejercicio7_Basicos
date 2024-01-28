@@ -26,20 +26,21 @@ fun main() {
 
     persona.agregarCuenta(cuenta1)
     persona.agregarCuenta(cuenta2)
-
+    println()
     cuenta1.recibirAbonos(1100.0)
     cuenta2.realizarPago(750.0)
-
+    println()
     println("¿Es morosa la persona? ${persona.morosos()}")
+    println()
+    val persona2 = Persona("13244327A")
+    persona2.agregarCuenta(Cuenta(443226758))
+    println()
+    persona.realizarTransferencia(persona2,0,0,500.0)
 
-    val personaDestino = Persona("13244327A")
-    personaDestino.agregarCuenta(Cuenta(443226758))
-
-    persona.realizarTransferencia(personaDestino,0,0,500.0)
-
+    println()
     println("Estado de la persona:")
-    for ((index, cuenta) in persona.cuentasBancarias.withIndex()) {
-        println("Cuenta $index - Saldo: ${cuenta?.consultarSaldo()}")
+    for (cuenta in persona.cuentasBancarias){
+        println("Cuenta: $cuenta - Saldo: ${cuenta?.consultarSaldo()}€")
     }
 
 }

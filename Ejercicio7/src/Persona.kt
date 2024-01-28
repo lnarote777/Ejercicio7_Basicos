@@ -13,8 +13,8 @@ class Persona(val dni : String){
     }
 
     fun realizarTransferencia( personaDestino: Persona, cuentaOrigen: Int, cuentaDestino: Int, cantidad: Double): Boolean {
-        val cuenta_Origen = cuentasBancarias.getOrNull(cuentaOrigen)
-        val cuenta_Destino = cuentasBancarias.getOrNull(cuentaDestino)
+        val cuenta_Origen = cuentasBancarias[cuentaOrigen]
+        val cuenta_Destino = personaDestino.cuentasBancarias[cuentaDestino]
 
         if (cuenta_Origen != null && cuenta_Destino != null && cuenta_Origen.saldo >= cantidad) {
                 cuenta_Origen.saldo -= cantidad
